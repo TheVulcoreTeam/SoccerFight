@@ -11,7 +11,13 @@ config_version=4
 [application]
 
 config/name="SaoccerFight"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+ClinetWS="*res://Autoloads/ClinetWS.gd"
+ServerWS="*res://Autoloads/ServerWS.gd"
 
 [physics]
 

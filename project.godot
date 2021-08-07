@@ -16,8 +16,13 @@ config/icon="res://icon.png"
 
 [autoload]
 
-ClinetWS="*res://Autoloads/ClinetWS.gd"
 ServerWS="*res://Autoloads/ServerWS.gd"
+ClinetWS="*res://Autoloads/ClinetWS.gd"
+
+[display]
+
+window/size/width=800
+window/size/height=400
 
 [physics]
 

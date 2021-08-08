@@ -14,6 +14,10 @@ config/name="SaoccerFight"
 run/main_scene="res://UI/RegisterUI.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://Autoloads/Events.gd"
+
 [display]
 
 window/size/width=1088

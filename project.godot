@@ -11,13 +11,12 @@ config_version=4
 [application]
 
 config/name="SaoccerFight"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://UI/RegisterUI.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-ServerWS="*res://Autoloads/ServerWS.gd"
-ClinetWS="*res://Autoloads/ClinetWS.gd"
+ClinetWs="res://Autoloads/ClinetWS.gd"
 
 [display]
 

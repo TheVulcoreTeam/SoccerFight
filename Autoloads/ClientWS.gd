@@ -1,7 +1,8 @@
 extends Node
 
 # The URL we will connect to
-export var websocket_url = "ws://soccer-fight.herokuapp.com"
+
+#export var websocket_url = "ws://soccer-fight.herokuapp.com"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -75,9 +76,13 @@ func _on_data():
 		register_ui.get_node("Confirm").show()
 		return
 
-	if dict["eventName"] == "rejected":
+	if dict["eventName"] == "close-timer":
 		register_ui.reset_timer()
 		return
+
+	if dict["eventName"] == "hide-background":
+		register_ui.get_node("Background").hide()
+		return	
 	
 func sendDic(dic):
 	var tjson = JSON.print(dic)

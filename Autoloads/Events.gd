@@ -4,7 +4,7 @@ var event_effect = preload("res://Autoloads/EventEffect/EventEffect.tscn")
 
 signal start_match
 
-signal goal(player)
+signal goal(who)
 
 func _ready():
 	connect("start_match", self, "_on_start_match_event")
@@ -12,17 +12,18 @@ func _ready():
 
 func _on_start_match_event():
 	var effect = event_effect.instance()
-	var center = get_viewport().get_rect().size / 2
-	
+	var center = get_viewport().size / 2
+	add_child(effect)
 	effect.position = center
 	
 	effect.play("START_MATCH")
+	print("start match ...")
 
-func _on_goal_event(player):
+func _on_goal_event(who):
 	var effect = event_effect.instance()
-	var center = get_viewport().get_rect().size / 2
-	
+	var center = get_viewport().size / 2
+	add_child(effect)
 	effect.position = center
 	
-	effect.play("goal")
-
+	effect.play("GOAL")
+	print("goal ...")

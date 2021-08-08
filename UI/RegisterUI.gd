@@ -4,16 +4,14 @@ var user_list = preload("res://UI/UserList.tscn").instance()
 
 var client
 
-#func _ready():
-#	yield(get_tree().create_timer(5.0), "timeout")
-#	$Confirm.window_title = "PlayerX invite you. Do you accept?"
-#	$Confirm.show()
+func _ready():
+	$Confirm.get_cancel().connect("pressed", self, "_on_close_modal")
+	
+	yield(get_tree().create_timer(1.0), "timeout")
+	$Confirm.window_title = "PlayerX invite you. Do you accept?"
+	$Confirm.show()
 #	yield(get_tree().create_timer(5.0), "timeout")
 #	$Confirm.hide()
-
-func close_question():
-	$Confirm.hide()
-	print_debug("close_question")
 	
 	
 func _on_Multiplayer_pressed():
@@ -34,8 +32,15 @@ func _on_SinglePlayer_pressed():
 		$"Background".hide()
 
 
-func _on_Confirm_confirmed():
+func _on_Confirm_confirmed(val):
+	print_debug(val)
 	$"Background".hide()
+	var dic = {
+		"eventName" : "no-answering",
+		"data" : {}
+	}
+	client.sendDic(dic)
+	
 
 
 func _on_Timer_timeout():
@@ -51,3 +56,15 @@ func _on_Timer_timeout():
 		$Waiting/Timer.stop()
 		$Waiting.hide()
 		
+
+func close_question():
+	$Confirm.hide()
+	print_debug("close_question")
+
+
+func _on_close_modal():
+	var dic = {
+	"eventName" : "reject",
+		"data" : {}
+	}
+	client.sendDic(dic)

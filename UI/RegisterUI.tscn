@@ -4,8 +4,14 @@
 [ext_resource path="res://Game/SoccerField/SoccerField.tscn" type="PackedScene" id=2]
 
 [node name="RegisterUI" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -544.0
+margin_top = -352.0
+margin_right = 544.0
+margin_bottom = 352.0
 rect_min_size = Vector2( 400, 300 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -66,14 +72,15 @@ size_flags_horizontal = 3
 text = "Multiplayer"
 
 [node name="Confirm" type="ConfirmationDialog" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -133.5
-margin_top = -29.0
-margin_right = 133.5
-margin_bottom = 29.0
+margin_left = -282.5
+margin_top = -33.5
+margin_right = 282.5
+margin_bottom = 33.5
 rect_min_size = Vector2( 150, 52.5 )
 window_title = "PlayerX invite you. Do you accept?"
 __meta__ = {

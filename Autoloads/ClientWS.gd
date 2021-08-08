@@ -6,7 +6,8 @@ export var websocket_url = "ws://localhost:3000"
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
 var register_ui
-var remote_player
+var remote_player_key
+var remote_player_name
 
 func _ready():
 	# Connect base signals to get notified of connection open, close, and errors.
@@ -68,8 +69,10 @@ func _on_data():
 		return
 	
 	if dict["eventName"] == "invited":
+		remote_player_key = dict["data"]["remote_player"]
+		remote_player_name = dict["data"]["remote_player_name"]
+		register_ui.get_node("Confirm").window_title = remote_player_name + " invite you. Do you accept?"
 		register_ui.get_node("Confirm").show()
-		remote_player = dict["data"]["remote_player"]
 		return
 
 	if dict["eventName"] == "rejected":

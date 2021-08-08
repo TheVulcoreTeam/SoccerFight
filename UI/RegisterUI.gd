@@ -69,7 +69,7 @@ func _on_close_modal():
 	var dic = {
 	"eventName" : "reject",
 		"data" : {
-			"user":client.remote_player
+			"user":client.remote_player_key
 		}
 	}
 	client.sendDic(dic)

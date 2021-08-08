@@ -16,9 +16,7 @@ func set_users_names(user_dic, _parent = null, _client = null):
 	delete_children($VBox)
 	
 	for element in user_dic:
-		if user_dic[element]["status"] == 4: 
-			if(parent.get_node("Background/VBox/YourNick").text == user_dic[element]["nick"]):
-				parent.get_node("Confirm").show()
+		
 		if(parent.get_node("Background/VBox/YourNick").text == user_dic[element]["nick"]):
 			continue
 		if user_dic[element]["status"] == 1: 

@@ -62,7 +62,6 @@ func _on_data():
 		register_ui.user_list.set_users_names(dict["data"], register_ui, self)
 	
 	if dict["eventName"] == "close-question":
-		register_ui.get_node("Confirm").hide()
 		register_ui.close_question()
 		
 	

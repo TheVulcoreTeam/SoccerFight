@@ -1,11 +1,12 @@
 extends Node
 
 # The URL we will connect to
-export var websocket_url = "ws://186.129.90.193:3000"
+export var websocket_url = "ws://localhost:3000"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
 var register_ui
+var remote_player
 
 func _ready():
 	# Connect base signals to get notified of connection open, close, and errors.
@@ -60,10 +61,20 @@ func _on_data():
 	
 	if dict["eventName"] == "user-list":
 		register_ui.user_list.set_users_names(dict["data"], register_ui, self)
+		return
 	
 	if dict["eventName"] == "close-question":
 		register_ui.close_question()
-		
+		return
+	
+	if dict["eventName"] == "invited":
+		register_ui.get_node("Confirm").show()
+		remote_player = dict["data"]["remote_player"]
+		return
+
+	if dict["eventName"] == "rejected":
+		register_ui.reset_timer()
+		return
 	
 func sendDic(dic):
 	var tjson = JSON.print(dic)

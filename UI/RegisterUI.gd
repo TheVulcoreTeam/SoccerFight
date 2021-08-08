@@ -1,3 +1,5 @@
+"""RegisterUI.gd"""
+
 extends Control
 
 var user_list = preload("res://UI/UserList.tscn").instance()
@@ -6,10 +8,9 @@ var client
 
 func _ready():
 	$Confirm.get_cancel().connect("pressed", self, "_on_close_modal")
-	
-	yield(get_tree().create_timer(1.0), "timeout")
-	$Confirm.window_title = "PlayerX invite you. Do you accept?"
-	$Confirm.show()
+#	yield(get_tree().create_timer(1.0), "timeout")
+#	$Confirm.window_title = "PlayerX invite you. Do you accept?"
+#	$Confirm.show()
 #	yield(get_tree().create_timer(5.0), "timeout")
 #	$Confirm.hide()
 	
@@ -42,19 +43,21 @@ func _on_Confirm_confirmed(val):
 	client.sendDic(dic)
 	
 
+func reset_timer():
+	$Waiting/VBoxContainer/ProgressBar.value = 0
+	$Waiting/Timer.stop()
+	$Waiting.hide()
 
 func _on_Timer_timeout():
 	if $Waiting/VBoxContainer/ProgressBar.value < 90:
 		$Waiting/VBoxContainer/ProgressBar.value += 10
 	else:
 		var dic = {
-		"eventName" : "no-answering",
+		"eventName" : "timeout",
 			"data" : {}
 		}
 		client.sendDic(dic)
-		$Waiting/VBoxContainer/ProgressBar.value = 0
-		$Waiting/Timer.stop()
-		$Waiting.hide()
+		reset_timer()
 		
 
 func close_question():
@@ -65,6 +68,8 @@ func close_question():
 func _on_close_modal():
 	var dic = {
 	"eventName" : "reject",
-		"data" : {}
+		"data" : {
+			"user":client.remote_player
+		}
 	}
 	client.sendDic(dic)

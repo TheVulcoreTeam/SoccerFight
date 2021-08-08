@@ -5,7 +5,6 @@ export var websocket_url = "ws://localhost:3000"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
-
 var register_ui
 
 func _ready():
@@ -49,10 +48,7 @@ func _connected(proto = ""):
 			"name" : register_ui.get_node("Background/VBox/YourNick").text,
 		}
 	}
-	
-	var tjson = JSON.print(dic)
-	
-	_client.get_peer(1).put_packet(tjson.to_utf8())
+	sendDic(dic)
 
 
 func _on_data():
@@ -63,9 +59,18 @@ func _on_data():
 	var dict = parse_json(st)
 	
 	if dict["eventName"] == "user-list":
-		register_ui.user_list.set_users_names(dict["data"], register_ui)
+		register_ui.user_list.set_users_names(dict["data"], register_ui, self)
 	
+	if dict["eventName"] == "close-question":
+		register_ui.get_node("Confirm").hide()
+		register_ui.close_question()
+		
 	
+func sendDic(dic):
+	var tjson = JSON.print(dic)
+	_client.get_peer(1).put_packet(tjson.to_utf8())
+	
+		
 func _process(delta):
 	# Call this in _process or _physics_process. Data transfer, and signals
 	# emission will only happen when calling this function.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kopnutie_kopackou2.ogg-39da8663f1550fae0db2bf5f9e42ded7.oggstr"
+
+[deps]
+
+source_file="res://Sounds1/kopnutie_kopackou2.ogg"
+dest_files=[ "res://.import/kopnutie_kopackou2.ogg-39da8663f1550fae0db2bf5f9e42ded7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

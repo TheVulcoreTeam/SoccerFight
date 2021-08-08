@@ -33,12 +33,15 @@ func _on_SinglePlayer_pressed():
 		$"Background".hide()
 
 
-func _on_Confirm_confirmed(val):
-	print_debug(val)
+func _on_Confirm_confirmed():
+	print_debug("Confimed")
 	$"Background".hide()
 	var dic = {
-		"eventName" : "no-answering",
-		"data" : {}
+		"eventName" : "answering",
+		"data" : {
+			"remote_player_key" : client.remote_player_key,
+			"ok" : true
+		}
 	}
 	client.sendDic(dic)
 	
@@ -67,9 +70,10 @@ func close_question():
 
 func _on_close_modal():
 	var dic = {
-	"eventName" : "reject",
+		"eventName" : "answering",
 		"data" : {
-			"user":client.remote_player_key
+			"remote_player_key" : client.remote_player_key,
+			"ok" : false
 		}
 	}
 	client.sendDic(dic)

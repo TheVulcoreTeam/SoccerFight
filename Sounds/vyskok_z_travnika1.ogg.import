@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vyskok_z_travnika1.ogg-d7861d5d9dd39e3fa10e416ed0b95387.oggstr"
+
+[deps]
+
+source_file="res://Sounds1/vyskok_z_travnika1.ogg"
+dest_files=[ "res://.import/vyskok_z_travnika1.ogg-d7861d5d9dd39e3fa10e416ed0b95387.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

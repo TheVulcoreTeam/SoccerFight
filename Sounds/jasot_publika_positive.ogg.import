@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jasot_publika_positive.ogg-f3f12dba3b9ee8d7334bcd233846d612.oggstr"
+
+[deps]
+
+source_file="res://Sounds1/jasot_publika_positive.ogg"
+dest_files=[ "res://.import/jasot_publika_positive.ogg-f3f12dba3b9ee8d7334bcd233846d612.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -39,32 +39,21 @@ func _closed(was_clean = false):
 func _connected(proto = ""):
 	# This is called on connection, "proto" will be the selected WebSocket
 	# sub-protocol (which is optional)
-	print("Connected with protocol: ", proto)
+	print_debug("Connected with protocol: ", proto)
 	# You MUST always use get_peer(1).put_packet to send data to server,
 	# and not put_packet directly when not using the MultiplayerAPI.
 	
 	var dic = {
-		"eventName":"login",
-		"data":{
-			"name" : "samu",
+		"eventName" : "login",
+		"data" : {
+			"name" : register_ui.get_node("Background/VBox/YourNick").text,
 		}
 	}
 	
-#	var dic = {
-#		"eventName":"userWaitingList",
-#		"data":{
-#			"users" : ["samu", "mati"],
-#		}
-#	}
-	
 	var tjson = JSON.print(dic)
-#	var json = JSON.parse(tjson)
 	
 	_client.get_peer(1).put_packet(tjson.to_utf8())
-	
-func login(dic):
-	var tjson = JSON.print(dic)
-	_client.get_peer(1).put_packet(tjson.to_utf8())
+
 
 func _on_data():
 	# Print the received packet, you MUST always use get_peer(1).get_packet
@@ -75,10 +64,6 @@ func _on_data():
 	
 	if dict["eventName"] == "user-list":
 		register_ui.user_list.set_users_names(dict["data"], register_ui)
-		
-#	var dictionary = Dictionary()
-#	var yarn = dictionary["samu"]
-#	print("Got data from server: ", yarn)
 	
 	
 func _process(delta):

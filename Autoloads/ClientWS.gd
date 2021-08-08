@@ -1,7 +1,7 @@
 extends Node
 
 # The URL we will connect to
-export var websocket_url = "ws://localhost:3000"
+export var websocket_url = "ws://soccer-fight.herokuapp.com"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -69,7 +69,7 @@ func _on_data():
 		return
 	
 	if dict["eventName"] == "invited":
-		remote_player_key = dict["data"]["remote_player"]
+		remote_player_key = dict["data"]["remote_player_key"]
 		remote_player_name = dict["data"]["remote_player_name"]
 		register_ui.get_node("Confirm").window_title = remote_player_name + " invite you. Do you accept?"
 		register_ui.get_node("Confirm").show()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfarria.ogg-ce45a7f9067ad6d6da02d930c60dfb30.oggstr"
+
+[deps]
+
+source_file="res://Sounds/fanfarria.ogg"
+dest_files=[ "res://.import/fanfarria.ogg-ce45a7f9067ad6d6da02d930c60dfb30.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

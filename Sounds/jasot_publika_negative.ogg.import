@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/jasot_publika_negative.ogg-dc42ea008105412033764dbae41f142f.oggstr"
+path="res://.import/jasot_publika_negative.ogg-8603dd206964fb96316fcabb46fa12f1.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/jasot_publika_negative.ogg"
-dest_files=[ "res://.import/jasot_publika_negative.ogg-dc42ea008105412033764dbae41f142f.oggstr" ]
+source_file="res://Sounds/jasot_publika_negative.ogg"
+dest_files=[ "res://.import/jasot_publika_negative.ogg-8603dd206964fb96316fcabb46fa12f1.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

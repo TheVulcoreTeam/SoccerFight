@@ -1,6 +1,6 @@
 extends Node
 
-const PATH = "res://Sounds/SFX/"
+const PATH = "res://Sounds/"
 const EXTENSION = "ogg"
 # Extension en android 
 const EXTENSION_ANDROID = "import"
@@ -48,11 +48,7 @@ func _ready():
 # Nombre del sonido a ejecutar sin extenciòn .ogg,
 # por ejemplo GOOD_BLOCK_KILL
 func play_sound(sound_name : String, volume_db := 0.0, loop := false, pitch_scale := 1):
-	if not Main.SFX:
-		return
-	
 	var sound = AudioStreamPlayer.new()
-	sound.bus = "SFX"
 	sound.pitch_scale = pitch_scale
 	add_child(sound)
 	
@@ -67,6 +63,8 @@ func play_sound(sound_name : String, volume_db := 0.0, loop := false, pitch_scal
 	sound.play()
 
 	sound.connect("finished", self, "_on_sound_finished", [sound])
+	
+	return sound
 	
 func _on_sound_finished(sound):
 	sound.queue_free()

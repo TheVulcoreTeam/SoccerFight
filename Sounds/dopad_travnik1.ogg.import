@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/dopad_travnik1.ogg-8b8f1a17de74351cba02fb0e9a35cb4c.oggstr"
+path="res://.import/dopad_travnik1.ogg-6dcca53d9d6f60824ee35f2754f7b80e.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/dopad_travnik1.ogg"
-dest_files=[ "res://.import/dopad_travnik1.ogg-8b8f1a17de74351cba02fb0e9a35cb4c.oggstr" ]
+source_file="res://Sounds/dopad_travnik1.ogg"
+dest_files=[ "res://.import/dopad_travnik1.ogg-6dcca53d9d6f60824ee35f2754f7b80e.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

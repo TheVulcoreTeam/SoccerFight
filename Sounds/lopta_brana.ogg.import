@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/lopta_brana.ogg-ec57f85af9e65312965b9b5cb0bb6857.oggstr"
+path="res://.import/lopta_brana.ogg-e9ffff063cbacef11ef02a0bc680934d.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/lopta_brana.ogg"
-dest_files=[ "res://.import/lopta_brana.ogg-ec57f85af9e65312965b9b5cb0bb6857.oggstr" ]
+source_file="res://Sounds/lopta_brana.ogg"
+dest_files=[ "res://.import/lopta_brana.ogg-e9ffff063cbacef11ef02a0bc680934d.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

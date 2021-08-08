@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/kopnutie_kopackou2.ogg-39da8663f1550fae0db2bf5f9e42ded7.oggstr"
+path="res://.import/kopnutie_kopackou2.ogg-e5a6cff5ec4d8fdf7e52a58c22b08212.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/kopnutie_kopackou2.ogg"
-dest_files=[ "res://.import/kopnutie_kopackou2.ogg-39da8663f1550fae0db2bf5f9e42ded7.oggstr" ]
+source_file="res://Sounds/kopnutie_kopackou2.ogg"
+dest_files=[ "res://.import/kopnutie_kopackou2.ogg-e5a6cff5ec4d8fdf7e52a58c22b08212.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

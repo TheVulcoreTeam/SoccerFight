@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/hlavicka1.ogg-f941ef7bbbdcfcc1c342fc0d588a97a8.oggstr"
+path="res://.import/hlavicka1.ogg-7f7132ed6882b5e7016ddd6bcb0d98cf.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/hlavicka1.ogg"
-dest_files=[ "res://.import/hlavicka1.ogg-f941ef7bbbdcfcc1c342fc0d588a97a8.oggstr" ]
+source_file="res://Sounds/hlavicka1.ogg"
+dest_files=[ "res://.import/hlavicka1.ogg-7f7132ed6882b5e7016ddd6bcb0d98cf.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

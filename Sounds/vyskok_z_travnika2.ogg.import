@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/vyskok_z_travnika2.ogg-b80b8c65c7fa893fac309f65c3819940.oggstr"
+path="res://.import/vyskok_z_travnika2.ogg-acc4a6c11346585e451ac25083adb5b5.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/vyskok_z_travnika2.ogg"
-dest_files=[ "res://.import/vyskok_z_travnika2.ogg-b80b8c65c7fa893fac309f65c3819940.oggstr" ]
+source_file="res://Sounds/vyskok_z_travnika2.ogg"
+dest_files=[ "res://.import/vyskok_z_travnika2.ogg-acc4a6c11346585e451ac25083adb5b5.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

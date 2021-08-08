@@ -59,13 +59,13 @@ margin_right = 400.0
 margin_bottom = 66.0
 
 [node name="SinglePlayer" type="Button" parent="Background/VBox/HBox"]
+visible = false
 margin_right = 198.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Single Player"
 
 [node name="Multiplayer" type="Button" parent="Background/VBox/HBox"]
-margin_left = 202.0
 margin_right = 400.0
 margin_bottom = 20.0
 size_flags_horizontal = 3

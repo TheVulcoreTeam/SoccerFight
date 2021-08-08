@@ -8,7 +8,12 @@ var client
 
 func _ready():
 	$Confirm.get_cancel().connect("pressed", self, "_on_close_modal")
-#	yield(get_tree().create_timer(1.0), "timeout")
+	var sound = SoundManager.play_sound("hudba_loop", -15)
+#	yield(get_tree().create_timer(10.0), "timeout")
+#	if sound: 
+#		sound.stop()
+#		sound.volume_db = -20
+
 #	$Confirm.window_title = "PlayerX invite you. Do you accept?"
 #	$Confirm.show()
 #	yield(get_tree().create_timer(5.0), "timeout")
@@ -16,6 +21,7 @@ func _ready():
 	
 	
 func _on_Multiplayer_pressed():
+	SoundManager.play_sound("menu_click")
 	
 	if $"Background/VBox/YourNick".text.length() <= 3:
 		return
@@ -45,6 +51,7 @@ func _on_Confirm_confirmed():
 	}
 	client.sendDic(dic)
 	
+	get_tree().change_scene("res://Game/Game.tscn")	
 
 func reset_timer():
 	$Waiting/VBoxContainer/ProgressBar.value = 0

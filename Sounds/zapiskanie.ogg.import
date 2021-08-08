@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/zapiskanie.ogg-774a06a6a09556350a3f560223cc1148.oggstr"
+path="res://.import/zapiskanie.ogg-0dfb28c08ec03856f9dc6b3841dd079b.oggstr"
 
 [deps]
 
-source_file="res://Sounds1/zapiskanie.ogg"
-dest_files=[ "res://.import/zapiskanie.ogg-774a06a6a09556350a3f560223cc1148.oggstr" ]
+source_file="res://Sounds/zapiskanie.ogg"
+dest_files=[ "res://.import/zapiskanie.ogg-0dfb28c08ec03856f9dc6b3841dd079b.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

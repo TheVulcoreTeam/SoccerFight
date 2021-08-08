@@ -1,7 +1,7 @@
 extends Node
 
 # The URL we will connect to
-export var websocket_url = "ws://localhost:3000"
+
 #export var websocket_url = "ws://soccer-fight.herokuapp.com"
 
 # Our WebSocketClient instance

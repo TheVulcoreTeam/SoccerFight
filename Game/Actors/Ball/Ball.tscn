@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Game/Actors/Ball/ball_bowling2.png" type="Texture" id=1]
 [ext_resource path="res://Game/Actors/Ball/ball_volley1.png" type="Texture" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://Game/Actors/Ball/ball_basket1.png" type="Texture" id=17]
 [ext_resource path="res://Game/Actors/Ball/ball_football.png" type="Texture" id=18]
 [ext_resource path="res://Game/Actors/Ball/ball_basket2.png" type="Texture" id=19]
+[ext_resource path="res://Game/Actors/Ball/Ball.gd" type="Script" id=20]
+
+[sub_resource type="PhysicsMaterial" id=4]
+bounce = 0.36
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,7 +35,37 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 18.7813
 
+[sub_resource type="Animation" id=3]
+resource_name = "Dead"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.6, 0.6 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource( 4 )
+script = ExtResource( 20 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.4, 0.4 )
@@ -40,3 +74,8 @@ animation = "Ball"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Dead = SubResource( 3 )
+
+[connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]

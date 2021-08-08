@@ -1,10 +1,12 @@
 extends Node
 
 # The URL we will connect to
-export var websocket_url = "ws://echo.websocket.org"
+export var websocket_url = "ws://localhost:3000"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
+
+var register_ui
 
 func _ready():
 	# Connect base signals to get notified of connection open, close, and errors.
@@ -22,11 +24,17 @@ func _ready():
 		print("Unable to connect")
 		set_process(false)
 
+
+func set_register_ui(_register_ui):
+	register_ui = _register_ui
+
+
 func _closed(was_clean = false):
 	# was_clean will tell you if the disconnection was correctly notified
 	# by the remote peer before closing the socket.
 	print("Closed, clean: ", was_clean)
 	set_process(false)
+
 
 func _connected(proto = ""):
 	# This is called on connection, "proto" will be the selected WebSocket
@@ -64,7 +72,10 @@ func _on_data():
 	# using the MultiplayerAPI.
 	var st = _client.get_peer(1).get_packet().get_string_from_utf8()
 	var dict = parse_json(st)
-	print(dict)
+	
+	if dict["eventName"] == "user-list":
+		register_ui.user_list.set_users_names(dict["data"], register_ui)
+		
 #	var dictionary = Dictionary()
 #	var yarn = dictionary["samu"]
 #	print("Got data from server: ", yarn)

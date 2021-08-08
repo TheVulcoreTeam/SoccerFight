@@ -14,10 +14,6 @@ config/name="SaoccerFight"
 run/main_scene="res://UI/RegisterUI.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-ClinetWs="res://Autoloads/ClinetWS.gd"
-
 [display]
 
 window/size/width=800

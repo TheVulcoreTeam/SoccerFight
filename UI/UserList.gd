@@ -1,9 +1,12 @@
 extends Control
 
 var parent
-func set_users_names(user_dic, _parent):
-	parent = _parent
-	for element in user_dic.values():
+
+func set_users_names(user_dic, _parent = null):
+	if _parent:
+		parent = _parent
+	
+	for element in user_dic:
 		var buttom = Button.new()
 		buttom.text = element
 		buttom.connect("pressed", self, "on_pressed")

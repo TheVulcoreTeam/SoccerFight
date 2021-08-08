@@ -28,6 +28,7 @@ polygon = PoolVector2Array( 0, 0, 1088, 0, 1088, 704, 0, 704, 0, -64, -64, -64, 
 
 [node name="Left" type="Area2D" parent="Goals"]
 position = Vector2( 0, 352.738 )
+collision_layer = 2
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="Goals/Left"]
@@ -35,6 +36,7 @@ shape = SubResource( 1 )
 
 [node name="Right" type="Area2D" parent="Goals"]
 position = Vector2( 1088.79, 352.738 )
+collision_layer = 2
 collision_mask = 2
 
 [node name="Shape" type="CollisionShape2D" parent="Goals/Right"]

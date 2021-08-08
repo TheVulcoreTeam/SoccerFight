@@ -82,6 +82,7 @@ func _on_data():
 
 	if dict["eventName"] == "hide-background":
 		register_ui.get_node("Background").hide()
+		get_tree().change_scene("res://Game/Game.tscn")
 		return	
 	
 func sendDic(dic):

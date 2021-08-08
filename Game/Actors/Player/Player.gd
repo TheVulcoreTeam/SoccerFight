@@ -26,3 +26,10 @@ func mouse_impulse():
 func _input(event):
 	if event.is_action_pressed("impulse"):
 		mouse_impulse()
+
+
+#func _on_Player_body_entered(body):
+##	if body is Ball:
+		
+
+

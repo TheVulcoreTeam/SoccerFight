@@ -9,12 +9,14 @@ func _ready():
 func _on_LeftGoal_body_entered(body):
 	if body is Ball:
 		Events.emit_signal("goal", null)
+		SoundManager.play_sound("goal")
 		body.destroy()
 
 
 func _on_RightGoal_body_entered(body):
 	if body is Ball:
 		Events.emit_signal("goal", null)
+		SoundManager.play_sound("goal")
 		body.destroy()
 
 

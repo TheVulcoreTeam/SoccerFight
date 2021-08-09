@@ -8,6 +8,9 @@ signal goal(who)
 signal player_impulse(impulse)
 signal second_player_impulse(impulse)
 
+var players
+var second_player
+
 func _ready():
 	connect("start_match", self, "_on_start_match_event")
 	connect("goal", self, "_on_goal_event")
@@ -37,7 +40,7 @@ func _on_player_impulse_event(impulse):
 	var dic = {
 		"eventName" : "my_impulse",
 		"data" : {
-			"impulse" : impulse,
+			"impulse" : [impulse.x, impulse.y],
 		}
 	}
 	
@@ -48,6 +51,6 @@ func _on_player_impulse_event(impulse):
 	pass
 
 func _on_second_player_impulse_event(impulse):
-	
-	
-	pass
+	Main.player2.impulse.x = int(impulse[0])
+	Main.player2.impulse.y = int(impulse[1])
+	print_debug("hola")

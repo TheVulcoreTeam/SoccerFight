@@ -48,6 +48,10 @@ func _on_player_impulse_event(data):
 				"velocity" : [data[3]["velocity"].x, data[3]["velocity"].y],
 				"position" : [data[3]["position"].x, data[3]["position"].y],	
 			},
+			"other_player" : {
+				"velocity" : [data[4]["velocity"].x, data[4]["velocity"].y],
+				"position" : [data[4]["position"].x, data[4]["position"].y],	
+			},
 		}
 	}
 	if ClientManager.is_client_connected():
@@ -56,11 +60,5 @@ func _on_player_impulse_event(data):
 """RECEIVER"""
 func _on_second_player_impulse_event(data):
 	Main.player2.remote_data = data
-#	Main.Player2.remote_impulse.x = int(data["impulse"][0])
-#	Main.player2.remote_impulse.y = int(data["impulse"][1])
-#	Main.player2.remote_player_position.x = int(data["position"][0])
-#	Main.player2.remote_player_position.y = int(data["position"][1])	
-#	Main.player2.mouse_position.x = int(data["mouse"][0])
-#	Main.player2.mouse_position.y = int(data["mouse"][1])
-
-	
+	Main.player1.sync_data = data["other_player"]
+	Main.ball.remote_data = data["ball"]

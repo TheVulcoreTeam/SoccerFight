@@ -20,10 +20,19 @@ var sync_data = null
 var sync_position =  Transform2D()
 var sync_velocity =  Vector2(200, 200)
 
+var time = 0
+const TIME_PERIOD = 1 # 500ms
+
+var shoot_available = true
+
 func _physics_process(delta):
 	if !remote_user:
 		$Sprite.look_at(get_global_mouse_position())
-
+	time += delta
+	if time > TIME_PERIOD:
+		shoot_available = true
+		time = 0
+		
 """LOOP"""
 func _integrate_forces(state):
 	if remote_data != null:
@@ -36,7 +45,6 @@ func _integrate_forces(state):
 	}
 		
 	if sync_data != null:
-		print(sync_data)
 		sync_position.origin.x = int(sync_data["position"][0])
 		sync_position.origin.y = int(sync_data["position"][1])
 		state.set_transform(sync_position)
@@ -67,9 +75,6 @@ func _integrate_forces(state):
 		
 		triger = false
 	
-	
-		
-		
 func process_remote_data(state):
 	var t = Transform2D()
 	t.origin.x = int(remote_data["position"][0])
@@ -85,19 +90,15 @@ func process_remote_data(state):
 	remote_mouse_position.y = int(remote_data["mouse"][1])
 	$Sprite.look_at(remote_mouse_position)
 	
-	
-
-
-	
-			
-
 func _input(event):
 	if event.is_action_pressed("impulse"):
-		if !remote_user:
-			triger = true
-			mouse_position = get_local_mouse_position()
-			impulse.x = clamp(mouse_position.x, -MAX_IMPULSE, MAX_IMPULSE)
-			impulse.y = clamp(mouse_position.y, -MAX_IMPULSE, MAX_IMPULSE)
+		if shoot_available:
+			shoot_available = false
+			if !remote_user:
+				triger = true
+				mouse_position = get_local_mouse_position()
+				impulse.x = clamp(mouse_position.x, -MAX_IMPULSE, MAX_IMPULSE)
+				impulse.y = clamp(mouse_position.y, -MAX_IMPULSE, MAX_IMPULSE)
 
 
 func set_as_remote():

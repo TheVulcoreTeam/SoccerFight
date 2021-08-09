@@ -48,3 +48,12 @@ func spawn_ball():
 func _on_respawn_ball():
 	spawn_ball()
 	
+func _process(delta):
+	if Main.player1:
+		var _string = str(int(Main.player1.time))
+		if _string == "0":
+			_string = "Go"
+			$Label.modulate = Color( 1, 0, 0, 1 )
+		else:
+			$Label.modulate = Color( 1, 1, 1, 1 )
+		$Label.text = _string

@@ -74,7 +74,6 @@ func close_question():
 	$Confirm.hide()
 	print_debug("close_question")
 
-
 func _on_close_modal():
 	var dic = {
 		"eventName" : "answering",

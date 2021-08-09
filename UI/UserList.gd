@@ -21,13 +21,15 @@ func set_users_names(user_dic, _parent = null, _client = null):
 			continue
 		if user_dic[element]["status"] == 1: 
 			var buttom = Button.new()
-			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+#			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+			buttom.text = str( user_dic[element]["nick"] )
 			buttom.connect("pressed", self, "on_pressed",[element] )
 			$VBox.add_child(buttom)
 			continue
 		if user_dic[element]["status"] == 2: 
 			var buttom = Button.new()
-			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+#			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+			buttom.text = str( user_dic[element]["nick"])
 			$VBox.add_child(buttom)
 			continue
 		
@@ -35,7 +37,8 @@ func set_users_names(user_dic, _parent = null, _client = null):
 			if(parent.get_node("Background/VBox/YourNick").text == user_dic[element]["nick"]):
 				parent.get_node("Confirm").show()
 			var buttom = Button.new()
-			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+#			buttom.text = str( user_dic[element]["nick"] + " " + str(user_dic[element]["status"]))
+			buttom.text = str( user_dic[element]["nick"] )
 			$VBox.add_child(buttom)
 			continue
 		

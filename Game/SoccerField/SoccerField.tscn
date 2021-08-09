@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game/SoccerField/Backround.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Game/Actors/Ball/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/SoccerField/SoccerField.gd" type="Script" id=4]
 
@@ -9,6 +10,10 @@ extents = Vector2( 32, 86 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 86 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 2 )
 
 [node name="SoccerField" type="Node2D"]
 script = ExtResource( 4 )
@@ -40,6 +45,18 @@ shape = SubResource( 2 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 position = Vector2( 546.819, 354.91 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 408.035
+margin_top = 573.118
+margin_right = 686.035
+margin_bottom = 692.118
+custom_fonts/font = SubResource( 3 )
+text = "2.3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="Goals/Left" to="." method="_on_LeftGoal_body_entered"]
 [connection signal="body_entered" from="Goals/Right" to="." method="_on_RightGoal_body_entered"]

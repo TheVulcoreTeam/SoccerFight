@@ -5,9 +5,11 @@
 [node name="UserList" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -400.0
-margin_bottom = -100.0
-rect_min_size = Vector2( 400, 300 )
+margin_left = 32.0
+margin_top = 30.0
+margin_right = -720.0
+margin_bottom = -374.0
+rect_min_size = Vector2( 336, 150 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

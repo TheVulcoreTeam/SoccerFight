@@ -90,6 +90,10 @@ func _on_data():
 		Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
 		print_debug(dict)
 	
+	if dict["eventName"] == "start":
+		Main.side = dict["data"]["position"] 
+		return
+	
 func sendDic(dic):
 	var tjson = JSON.print(dic)
 	print_debug(tjson)

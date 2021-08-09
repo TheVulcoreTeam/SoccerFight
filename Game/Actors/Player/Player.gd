@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 
-const MAX_IMPULSE = 70
+const MAX_IMPULSE = 300
 
 var impulse = Vector2.ZERO
 var mouse_position = Vector2.ZERO

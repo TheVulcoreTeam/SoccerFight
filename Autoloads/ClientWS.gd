@@ -63,35 +63,41 @@ func _on_data():
 	var dict = parse_json(st)
 	
 	if dict["eventName"] == "user-list":
-		register_ui.user_list.set_users_names(dict["data"], register_ui, self)
+		if register_ui != null:
+			register_ui.user_list.set_users_names(dict["data"], register_ui, self)
 		return
 	
 	if dict["eventName"] == "close-question":
-		register_ui.close_question()
+		if register_ui != null:
+			register_ui.close_question()
 		return
 	
 	if dict["eventName"] == "invited":
-		remote_player_key = dict["data"]["remote_player_key"]
-		remote_player_name = dict["data"]["remote_player_name"]
-		register_ui.get_node("Confirm").window_title = remote_player_name + " invite you. Do you accept?"
-		register_ui.get_node("Confirm").show()
+		if register_ui != null:
+			remote_player_key = dict["data"]["remote_player_key"]
+			remote_player_name = dict["data"]["remote_player_name"]
+			register_ui.get_node("Confirm").window_title = remote_player_name + " invite you. Do you accept?"
+			register_ui.get_node("Confirm").show()
 		return
 
 	if dict["eventName"] == "close-timer":
-		register_ui.reset_timer()
+		if register_ui != null:
+			register_ui.reset_timer()
 		return
 
 	if dict["eventName"] == "hide-background":
-		register_ui.get_node("Background").hide()
-		get_tree().change_scene("res://Game/Game.tscn")
+		if register_ui != null:
+			register_ui.get_node("Background").hide()
+			get_tree().change_scene("res://Game/Game.tscn")
 		return
 		
 	if dict["eventName"] == "his_impulse":
-		Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
+		if register_ui != null:
+			Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
 		print_debug(dict)
 	
 	if dict["eventName"] == "start":
-		Main.side = dict["data"]["position"] 
+		Main.side = dict["data"]["user"]["position"] 
 		return
 	
 func sendDic(dic):

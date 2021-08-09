@@ -8,5 +8,6 @@
 script = ExtResource( 2 )
 
 [node name="SoccerField" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1.25989, 0 )
 
 [node name="GameUI" parent="." instance=ExtResource( 1 )]

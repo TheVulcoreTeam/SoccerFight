@@ -92,8 +92,7 @@ func _on_data():
 		return
 		
 	if dict["eventName"] == "his_impulse":
-		Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
-#		print_debug(dict)
+		Events.emit_signal("second_player_impulse", dict["data"])
 	
 	if dict["eventName"] == "start":
 		Main.side = dict["data"]["user"]["position"] 
@@ -101,7 +100,7 @@ func _on_data():
 	
 func sendDic(dic):
 	var tjson = JSON.print(dic)
-	print_debug(tjson)
+#	print_debug(tjson)
 	_client.get_peer(1).put_packet(tjson.to_utf8())
 	
 		

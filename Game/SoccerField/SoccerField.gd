@@ -23,7 +23,7 @@ func _ready():
 
 	Main.player2.position.y = get_viewport().size.y / 2
 	add_child(Main.player2)
-
+	Main.ball =  $Ball
 
 func _on_LeftGoal_body_entered(body):
 	if body is Ball:
@@ -38,9 +38,13 @@ func _on_RightGoal_body_entered(body):
 		SoundManager.play_sound("goal")
 		body.destroy()
 
-
-func _on_respawn_ball():
-	var center = get_viewport().size / 2
+func spawn_ball():
 	var ball = ball_rec.instance()
-	ball.global_position = center
+	ball.global_position = Vector2(1088/2, 704/2)
 	add_child(ball)
+	Main.ball =  ball
+	
+	
+func _on_respawn_ball():
+	spawn_ball()
+	

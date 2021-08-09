@@ -21,14 +21,14 @@ bounce = 0.5
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "PlayerGreen",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "PlayerBlue",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "PlayerGreen",
 "speed": 5.0
 } ]
 

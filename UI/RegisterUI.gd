@@ -26,9 +26,9 @@ func _on_Multiplayer_pressed():
 	if $"Background/VBox/YourNick".text.length() <= 3:
 		return
 	
-	client = load("res://Autoloads/ClientWS.gd").new()
+	client = ClientManager.create_new_client()
 	client.set_register_ui(self)
-	add_child(client)
+	print_debug("client created...")
 	
 	$"Background/VBox".hide()
 	$Background.add_child(user_list)

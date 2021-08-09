@@ -1,5 +1,5 @@
 extends Node
-
+class_name ClientWS
 # The URL we will connect to
 
 export var websocket_url = "ws://soccer-fight.herokuapp.com"
@@ -29,6 +29,7 @@ func _ready():
 
 func set_register_ui(_register_ui):
 	register_ui = _register_ui
+	print_debug("registered_ui...")
 
 
 func _closed(was_clean = false):
@@ -83,10 +84,15 @@ func _on_data():
 	if dict["eventName"] == "hide-background":
 		register_ui.get_node("Background").hide()
 		get_tree().change_scene("res://Game/Game.tscn")
-		return	
+		return
+		
+	if dict["eventName"] == "his_impulse":
+		Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
+		print_debug(dict)
 	
 func sendDic(dic):
 	var tjson = JSON.print(dic)
+	print_debug(tjson)
 	_client.get_peer(1).put_packet(tjson.to_utf8())
 	
 		

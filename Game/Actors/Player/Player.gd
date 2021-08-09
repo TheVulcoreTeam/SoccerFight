@@ -21,7 +21,7 @@ func _integrate_forces(state):
 
 func mouse_impulse():
 	impulse = get_local_mouse_position()
-
+	Events.emit_signal("player_impulse", impulse)
 
 func _input(event):
 	if event.is_action_pressed("impulse"):

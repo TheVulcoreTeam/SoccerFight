@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Ball",
 "language": "GDScript",
 "path": "res://Game/Actors/Ball/Ball.gd"
+}, {
+"base": "Node",
+"class": "ClientWS",
+"language": "GDScript",
+"path": "res://Autoloads/ClientWS.gd"
 } ]
 _global_script_class_icons={
-"Ball": ""
+"Ball": "",
+"ClientWS": ""
 }
 
 [application]
@@ -28,6 +34,7 @@ config/icon="res://icon.png"
 
 Events="*res://Autoloads/Events.gd"
 SoundManager="*res://Autoloads/SoundManager.tscn"
+ClientManager="*res://Autoloads/ClientManager.gd"
 
 [display]
 

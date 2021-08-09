@@ -63,17 +63,17 @@ func _on_data():
 	var dict = parse_json(st)
 	
 	if dict["eventName"] == "user-list":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			register_ui.user_list.set_users_names(dict["data"], register_ui, self)
 		return
 	
 	if dict["eventName"] == "close-question":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			register_ui.close_question()
 		return
 	
 	if dict["eventName"] == "invited":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			remote_player_key = dict["data"]["remote_player_key"]
 			remote_player_name = dict["data"]["remote_player_name"]
 			register_ui.get_node("Confirm").window_title = remote_player_name + " invite you. Do you accept?"
@@ -81,18 +81,18 @@ func _on_data():
 		return
 
 	if dict["eventName"] == "close-timer":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			register_ui.reset_timer()
 		return
 
 	if dict["eventName"] == "hide-background":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			register_ui.get_node("Background").hide()
 			get_tree().change_scene("res://Game/Game.tscn")
 		return
 		
 	if dict["eventName"] == "his_impulse":
-		if register_ui != null:
+		if is_instance_valid(register_ui):
 			Events.emit_signal("second_player_impulse", dict["data"]["impulse"])
 		print_debug(dict)
 	

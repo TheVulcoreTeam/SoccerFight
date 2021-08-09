@@ -1,18 +1,24 @@
 extends RigidBody2D
 
 
-const MAX_IMPULSE = 70
+const MAX_IMPULSE = 300
 
 var impulse = Vector2.ZERO
 var mouse_position = Vector2.ZERO
 var current_position = Vector2.ZERO
 var remote_impulse = Vector2.ZERO
 var remote_mouse_position = Vector2.ZERO
-
 var remote_data = null
 var remote_user = false
+var other_player = {
+	"velocity": Vector2.ZERO,
+	"position": Vector2.ZERO,
+}
 
 var triger = false
+var sync_data = null
+var sync_position =  Transform2D()
+var sync_velocity =  Vector2(200, 200)
 
 func _physics_process(delta):
 	if !remote_user:
@@ -20,10 +26,24 @@ func _physics_process(delta):
 
 """LOOP"""
 func _integrate_forces(state):
-	if remote_data != null && remote_user:
-#		print(remote_data)
+	if remote_data != null:
 		process_remote_data(state) #1
 		remote_data = null #2
+	
+	other_player = {
+		"velocity": state.get_linear_velocity(),
+		"position": state.get_transform().origin,
+	}
+		
+	if sync_data != null:
+		print(sync_data)
+		sync_position.origin.x = int(sync_data["position"][0])
+		sync_position.origin.y = int(sync_data["position"][1])
+		state.set_transform(sync_position)
+		sync_velocity.x = int(sync_data["velocity"][0])
+		sync_velocity.y = int(sync_data["velocity"][1])
+		state.set_linear_velocity(sync_velocity)
+		sync_data = null
 	
 	if triger:
 		current_position = state.get_transform().origin
@@ -37,7 +57,8 @@ func _integrate_forces(state):
 			impulse, 
 			current_position, 
 			mouse_position, 
-			ball_data
+			ball_data,
+			Main.player2.other_player
 		])
 		
 		state.set_linear_velocity(Vector2.ZERO)
@@ -45,7 +66,7 @@ func _integrate_forces(state):
 #		print(state.get_linear_velocity())
 		
 		triger = false
-		
+	
 	
 		
 		
@@ -64,7 +85,10 @@ func process_remote_data(state):
 	remote_mouse_position.y = int(remote_data["mouse"][1])
 	$Sprite.look_at(remote_mouse_position)
 	
-	Main.ball.remote_data = remote_data["ball"]
+	
+
+
+	
 			
 
 func _input(event):

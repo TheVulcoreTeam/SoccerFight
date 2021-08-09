@@ -14,9 +14,11 @@ func destroy():
 func _on_Anim_animation_finished(anim_name):
 	Events.emit_signal("respawn_ball")
 	queue_free()
+	
 func _integrate_forces(state):
 	current_position = state.get_transform().origin
 	current_linear_velocity = state.get_linear_velocity()
+	
 	if remote_data != null :
 		var t = Transform2D()
 		t.origin.x = int(remote_data["position"][0])

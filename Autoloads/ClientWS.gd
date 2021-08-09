@@ -103,7 +103,7 @@ func sendDic(dic):
 #	print_debug(tjson)
 	_client.get_peer(1).put_packet(tjson.to_utf8())
 	
-		
+	
 func _process(delta):
 	# Call this in _process or _physics_process. Data transfer, and signals
 	# emission will only happen when calling this function.

@@ -85,6 +85,10 @@ func _on_data():
 		get_tree().change_scene("res://Game/Game.tscn")
 		return	
 	
+	if dict["eventName"] == "start":
+		Main.side = dict["data"]["position"] 
+		return
+	
 func sendDic(dic):
 	var tjson = JSON.print(dic)
 	_client.get_peer(1).put_packet(tjson.to_utf8())

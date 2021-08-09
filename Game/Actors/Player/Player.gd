@@ -5,9 +5,11 @@ const MAX_IMPULSE = 70
 
 var impulse = Vector2.ZERO
 
+var remote_user = false
 
 func _physics_process(delta):
-	$Sprite.look_at(get_global_mouse_position())
+	if !remote_user:
+		$Sprite.look_at(get_global_mouse_position())
 
 
 func _integrate_forces(state):
@@ -20,7 +22,8 @@ func _integrate_forces(state):
 
 
 func mouse_impulse():
-	impulse = get_local_mouse_position()
+	if !remote_user:
+		impulse = get_local_mouse_position()
 
 
 func _input(event):
@@ -28,8 +31,5 @@ func _input(event):
 		mouse_impulse()
 
 
-#func _on_Player_body_entered(body):
-##	if body is Ball:
-		
-
-
+func set_as_remote():
+	remote_user = true

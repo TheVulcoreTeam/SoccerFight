@@ -6,10 +6,11 @@ var user_list = preload("res://UI/UserList.tscn").instance()
 
 var client
 
+
 func _ready():
 	$Confirm.get_cancel().connect("pressed", self, "_on_close_modal")
-	var sound = SoundManager.play_sound("hudba_loop", -20)
-#	yield(get_tree().create_timer(10.0), "timeout")
+	Main.environment_sound = SoundManager.play_sound("hudba_loop", -20)
+	#yield(get_tree().create_timer(10.0), "timeout")
 #	if sound: 
 #		sound.stop()
 #		sound.volume_db = -20

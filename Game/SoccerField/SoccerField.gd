@@ -50,10 +50,18 @@ func _on_respawn_ball():
 	
 func _process(delta):
 	if Main.player1:
-		var _string = str(int(Main.player1.time))
+		var _string = str(ceil(Main.player1.time))
 		if _string == "0":
 			_string = "Go"
 			$Label.modulate = Color( 1, 0, 0, 1 )
 		else:
 			$Label.modulate = Color( 1, 1, 1, 1 )
 		$Label.text = _string
+
+
+func _on_Button_toggled(button_pressed):
+	if button_pressed:
+		Main.environment_sound.volume_db = -60
+		#		sound.
+	else:
+		Main.environment_sound.volume_db = -20

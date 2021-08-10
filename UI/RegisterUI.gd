@@ -9,7 +9,7 @@ var client
 
 func _ready():
 	$Confirm.get_cancel().connect("pressed", self, "_on_close_modal")
-	Main.environment_sound = SoundManager.play_sound("hudba_loop", -20)
+	Main.environment_sound = SoundManager.play_sound("hudba_loop", -20, true)
 	#yield(get_tree().create_timer(10.0), "timeout")
 #	if sound: 
 #		sound.stop()

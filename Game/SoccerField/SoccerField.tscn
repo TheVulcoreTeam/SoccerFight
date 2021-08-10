@@ -64,7 +64,7 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 546.819, 354.91 )
+position = Vector2( 546.819, 352.081 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 408.035

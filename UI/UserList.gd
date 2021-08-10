@@ -41,6 +41,10 @@ func set_users_names(user_dic, _parent = null, _client = null):
 			buttom.text = str( user_dic[element]["nick"] )
 			$VBox.add_child(buttom)
 			continue
+	if $VBox.get_children().size() == 0:
+		var buttom = Button.new()
+		buttom.text = "Waiting others players..."
+		$VBox.add_child(buttom)
 		
 
 func on_pressed(id):

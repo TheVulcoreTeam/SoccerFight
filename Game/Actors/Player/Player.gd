@@ -2,6 +2,11 @@ extends RigidBody2D
 
 
 const MAX_IMPULSE = 300
+const TIME_PERIOD = 5 # time to shoot
+const TIME_PERIOD_SHORT = 3 # time to shoot
+var flag_bool_time = true
+var time = 0
+var shoot_available = true
 
 var impulse = Vector2.ZERO
 var mouse_position = Vector2.ZERO
@@ -20,9 +25,7 @@ var sync_data = null
 var sync_position =  Transform2D()
 var sync_velocity =  Vector2(200, 200)
 
-var time = 0
-const TIME_PERIOD = 3 # 500ms
-var shoot_available = true
+
 
 func _physics_process(delta):
 	if !remote_user:
@@ -95,7 +98,11 @@ func _input(event):
 	if event.is_action_pressed("impulse"):
 		if shoot_available:
 			shoot_available = false
-			time = TIME_PERIOD
+			flag_bool_time = !flag_bool_time
+			if flag_bool_time:
+				time = TIME_PERIOD
+			else:
+				time = TIME_PERIOD_SHORT
 			if !remote_user:
 				triger = true
 				mouse_position = get_local_mouse_position()

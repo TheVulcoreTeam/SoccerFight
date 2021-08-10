@@ -2,18 +2,20 @@ extends Node2D
 
 var ball_rec = preload("res://Game/Actors/Ball/Ball.tscn")
 var player_rec = preload("res://Game/Actors/Player/Player.tscn")
+var player_rec_2 = preload("res://Game/Actors/Player/Player_2.tscn")
 
 func _ready():
 	Events.connect("respawn_ball", self, "_on_respawn_ball")
 	
-	Main.player1 = player_rec.instance()
-	Main.player2 = player_rec.instance()
-	
 	if Main.side:
+		Main.player1 = player_rec.instance()
 		Main.player1.position.x = get_viewport().size.x * 0.25
+		Main.player2 = player_rec_2.instance()
 		Main.player2.position.x = get_viewport().size.x * 0.75
 	else:
+		Main.player1 = player_rec_2.instance()
 		Main.player1.position.x = get_viewport().size.x * 0.75
+		Main.player2 = player_rec.instance()
 		Main.player2.position.x = get_viewport().size.x * 0.25
 	
 	Main.player2.set_as_remote()
@@ -62,6 +64,5 @@ func _process(delta):
 func _on_Button_toggled(button_pressed):
 	if button_pressed:
 		Main.environment_sound.volume_db = -60
-		#		sound.
 	else:
 		Main.environment_sound.volume_db = -20

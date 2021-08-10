@@ -84,3 +84,9 @@ func _on_close_modal():
 		}
 	}
 	client.sendDic(dic)
+	
+func _on_Button_toggled(button_pressed):
+	if button_pressed:
+		Main.environment_sound.volume_db = -60
+	else:
+		Main.environment_sound.volume_db = -20

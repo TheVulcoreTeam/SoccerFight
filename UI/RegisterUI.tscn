@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/RegisterUI.gd" type="Script" id=1]
 [ext_resource path="res://Game/SoccerField/Backround.tscn" type="PackedScene" id=2]
@@ -28,6 +28,12 @@ outline_color = Color( 0.0941176, 0.129412, 0.411765, 1 )
 extra_spacing_top = 80
 extra_spacing_char = 2
 extra_spacing_space = 11
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 2
+outline_color = Color( 0.0313726, 0.0705882, 0.376471, 1 )
+extra_spacing_top = 4
 font_data = ExtResource( 3 )
 
 [node name="RegisterUI" type="Control"]
@@ -175,8 +181,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button" type="Button" parent="."]
+margin_left = 1005.71
+margin_top = 23.5451
+margin_right = 1063.71
+margin_bottom = 50.5451
+custom_fonts/font = SubResource( 5 )
+toggle_mode = true
+text = "music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Background/VBox/HBox/SinglePlayer" to="." method="_on_SinglePlayer_pressed"]
 [connection signal="pressed" from="Background/VBox/HBox/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="confirmed" from="Confirm" to="." method="_on_Confirm_confirmed"]
 [connection signal="custom_action" from="Confirm" to="." method="_on_Confirm_custom_action"]
 [connection signal="timeout" from="Waiting/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

@@ -17,8 +17,8 @@ func _ready():
 		Main.player1.position.x = get_viewport().size.x * 0.75
 		Main.player2 = player_rec.instance()
 		Main.player2.position.x = get_viewport().size.x * 0.25
-		
-	
+
+
 	Main.player2.set_as_remote()
 	
 	Main.player1.position.y = get_viewport().size.y / 2
